@@ -23,7 +23,7 @@ Don't use this one! It works but calls `onerror()` in a loop, filling up your st
 ```
 
 ## Run the Cookie Stealer Python Script
-You'll need a place to capture the stolen cookies. [lnxg33k](https://github.com/lnxg33k) has written an excellent Python script called [XSS-cookie-stealer.py](). Run it with Python 2.6 or higher. It is just an HTTP server which logs each inbound HTTP connection and all the cookies contained in that connection.
+You'll need a place to capture the stolen cookies. [lnxg33k](https://github.com/lnxg33k) has written an excellent Python script called [XSS-cookie-stealer.py](https://github.com/Mehdi0x90/Scripts/blob/main/Python/XSS-cookie-stealer.py). Run it with Python 2.6 or higher. It is just an HTTP server which logs each inbound HTTP connection and all the cookies contained in that connection.
 ```bash
 # Run script
 python XSS-cookie-stealer.py
