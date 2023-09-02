@@ -1,11 +1,6 @@
 # JavaScript
-## Extract JavaScript Files
-```bash
-waybackurls target.com | grep "\\.js" | xargs -n1 -I@ curl -k @ | tee -a content.txt
 
-```
-
-## Find JavaScript Files by gau and httpx
+## Find JavaScript files by gau and httpx
 
 * [gau](https://github.com/lc/gau)
 * [httpx](https://github.com/projectdiscovery/httpx)
@@ -17,20 +12,22 @@ echo target.com | gau | grep '\.js$' | httpx -status-code -mc 200 -content-type 
 
 ## Find and Extract JS file
 ```bash
+# method 1
+waybackurls target.com | grep "\\.js" | xargs -n1 -I@ curl -k @ | tee -a content.txt
+
+# method 2
 subfinder -d target.com | httpx -mc 200 | tee subdomains.txt && cat subdomains.txt | waybackurls | httpx -mc 200 | grep .js | tee js.txt
 
 ```
-> In summary, this command sequence combines various tools (subfinder, httpx, waybackurls, and grep) to find subdomains, retrieve historical URLs, filter JavaScript files, and save the results in separate files (subdomains.txt and js.txt).
 
 
-
-## Extract API endpoints from javascript files
+## Extract API endpoints from JavaScript files
 ```bash
 cat file.js | grep -aoP "(?<=(\"|\'|\`))\/[a-zA-Z0-9_?&=\/\-\#\.]*(?=(\"|\'|\`))" | sort -u
 
 ```
 
-## Searching in JS files
+## Searching in JavaScript files
 ```bash
 grep -r -E "aws_access_key|aws_secret_key|api key|passwd|pwd|heroku|slack|firebase|swagger|aws_secret_key|aws key|password|ftp password|jdbc|db|sql|secret jet|config|admin|pwd|json|gcp|htaccess|.env|ssh key|.git|access key|secret token|oauth_token|oauth_token_secret" /path/to/directory/*.js
 
@@ -39,7 +36,7 @@ grep -r -E "aws_access_key|aws_secret_key|api key|passwd|pwd|heroku|slack|fireba
 
 
 
-## Find hidden GET parameters in javascript files
+## Find hidden GET parameters in JavaScript files
 Here’s an interesting tip for finding hidden parameters by analyzing javascript files:
 
 1. Scour javascript files for variable names, e.g.:
