@@ -1,9 +1,5 @@
 # Bash Tricks
-### Search command history on bash
-```bash
-Ctrl+r
 
-```
 ### Generate random password
 Generate a random password `30` characters long
 ```bash
@@ -36,9 +32,11 @@ for i in {1..65535}; do (echo < /dev/tcp/192.168.0.1/$i) &>/dev/null && printf "
 
 ```
 
-
 ### Commom Bash
 ```bash
+# Search command history on bash
+Ctrl+r
+
 #Exfiltration using Base64
 base64 -w 0 file
 
