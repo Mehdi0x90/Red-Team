@@ -266,7 +266,7 @@ locate -r '\.nse$' | xargs grep categories | grep 'default\|version\|safe' | gre
 nmap --script-help "(default or version) and smb)"
 ```
 
-### IPTables
+### iptables
 ```bash
 #Delete curent rules and chains
 iptables --flush
