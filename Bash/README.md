@@ -1,9 +1,9 @@
 # Bash Tricks
 
 ### Generate random password
-Generate a random password `30` characters long
+Generate a random password `18` characters long
 ```bash
-tr -c -d 'a-zA-Z0-9~!@#$%^&*' </dev/urandom | dd bs=30 count=1 2>/dev/null;echo
+tr -c -d 'a-zA-Z0-9~!@#$%^&*' </dev/urandom | dd bs=18 count=1 2>/dev/null;echo
 
 ```
 ### Generate SSH public key from the private key
