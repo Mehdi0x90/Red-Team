@@ -1,3 +1,7 @@
+
+<img src="https://github.com/Mehdi0x90/Coding/assets/17106836/1c6f9e17-1f8e-43f4-81f4-782a05bca923" width="250" height="250">
+
+
 # Coding & Scripting
 In this section, you can access the scripts based on the programming language category.
 * [Bash](https://github.com/Mehdi0x90/Scripts/tree/main/Bash)
