@@ -6,6 +6,6 @@
 Here you can access the codes and scripts used by hackers and pentesters.
 * [Bash](https://github.com/Mehdi0x90/Scripts/tree/main/Bash)
 * [C/C++](https://github.com/Mehdi0x90/Scripts/tree/main/CPP)
-* [JavaScript](https://github.com/Mehdi0x90/Scripts/tree/main/JavaScript)
 * [Python](https://github.com/Mehdi0x90/Scripts/tree/main/Python)
+* [JavaScript](https://github.com/Mehdi0x90/Scripts/tree/main/JavaScript)
 * [Powershell](https://github.com/Mehdi0x90/Coding/tree/main/Powershell)
