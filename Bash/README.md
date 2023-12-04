@@ -121,8 +121,40 @@ fuser -nv tcp 80
 
 ### Curl
 ```bash
+#Check The Status of A Site
+curl -Is http://domain.com | head -n 1
+
+#Download A File Over SSH
+curl -u root sftp://host.domain.com/path/to/file
+
+#Verify If A Website Supports HTTP/2 With Curl
+curl -I --http2 -s https://liquidweb.com/ | grep HTTP
+
+#Need A QR Code? cURL
+curl qrenco.de/mydomain.com
+
+#Save URL content to a file
+curl -o logo.png https://reqbin.com/static/img/logo.png
+
+#Download multiple files at once
+curl -O https://reqbin.com/static/img/code/curl.png 
+   -O https://reqbin.com/static/img/code/java.png 
+   -O https://reqbin.com/static/img/code/python.png
+
+#Send data to the server
+curl -d '{"id": 123456}'
+   -H "Content-Type: application/json"
+   https://reqbin.com/echo/post/json
+
+#Download URLs From a File
+xargs -n 1 curl -O < listurls.txt
+
+#Store Website Cookies
+curl --cookie-jar cnncookies.txt https://www.cnn.com/index.html -O
+
 #json data
 curl --header "Content-Type: application/json" --request POST --data '{"password":"password", "username":"admin"}' http://host:3000/endpoint
+
 #Auth via JWT
 curl -X GET -H 'Authorization: Bearer <JWT>' http://host:3000/endpoint
 ```
