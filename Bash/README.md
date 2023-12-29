@@ -384,8 +384,158 @@ iptables -P OUTPUT ACCEPT
 ```
 
 
+### Network Commands
+```bash
+#network communications
+watch ss -tp 
 
+#tcp or udp connections -anu=udp
+netstat -ant
 
+#connections along with PIDs
+netstat -tulpn
 
+#connection established
+lsof -i 
 
+#access to the shared environment smb
+smb:// ip /share 
 
+#mount the shared Windows environment
+share user x.x.x.x c$ 
+
+#share Connect to SMB
+smbclient -0 user\ ip \ 
+
+#set IP and netmask
+ifconfig eth# ip cidr 
+
+#virtual interface setup
+ifconfig eth0:1 ip cidr 
+
+#GW setting
+route add default gw gw lp 
+
+#change MAC
+export MAC=xx: XX: XX: XX: XX: XX 
+
+#change MAC
+ifconfig int hw ether MAC 
+
+#Mac changer
+macchanger -m MAC int 
+
+#wifi scanner
+iwlist int scan 
+
+#listen on specific port
+nc -lvvp port 
+
+#create a web server
+python3 -m http.server port 
+
+#identify the domains of an ip
+dig -x ip 
+
+#identify the domains of an ip
+host ip 
+
+#identifies the domain's SRV
+host -t SRV _service tcp.url.com 
+
+#identify DNS Zone Xfer
+dig @ ip domain -t AXrR 
+
+#identify DNS Zone Xfer
+host -1 domain namesvr 
+
+#blocking ip:port
+tcpkill host ip and port port
+
+#enable ip forwarding
+echo "1" /proc/sys/net/ipv4/ip forward 
+
+#show mounted points
+showmount -e ip
+
+#mount shared path ip
+mkdir /site_backups;mount -t nfs ip:/ /site_backup 
+```
+
+### System Information
+```bash
+#Get hostname for ip
+nbstate -A -ip
+
+#Current username
+id
+
+#User is logged in
+w
+
+#User information
+who -a
+
+#The last logged in user
+last -a
+
+#available system processes (or use top)
+ps -ef
+
+#disk usage (or free usage)
+df -h
+
+#Display the kernel version along with the processor structure
+uname -a
+
+#Mount the file system
+mount
+
+#Show list of users
+getent passwd
+
+#Add variable to PATH
+PATH~$PATH:/home/mypath
+
+#kill process with pid
+kill pid
+
+#Display operating system information
+cat /etc/issue
+
+#display operating system version information
+cat /etc/os-release
+
+#Display kernel version information
+cat /proc/version
+
+#installed packages (in Redhat)
+rpm –query -all
+
+#install rpm packages (to remove -e=remove)
+rpm -ivh '.rpm
+
+#installed packages (on Ubuntu)
+dpkg -get-selections
+
+#install DEB packages (to remove -r=remove)
+dpkg -I '.deb
+
+#Installed packages (on Solaris)
+pkginfo
+
+#show executable file paths
+which tscsh/csh/ksh/bash
+
+#disables shell and also forces bash to be used
+chmod -so tcsh/csh/ksh
+
+#Finding files with suid
+find / -perm -4000 -type f -exec ls -la {} 2>/dev/null \;
+
+#Find files with suid
+find / -uid 0 -perm -4000 -type f 2>/dev/null
+
+#display writable files
+find / -writable ! -user whoami -type f! -path “/proc/” ! -path “/sys/” -exec ls -al {} \; 2>/dev/null
+```
