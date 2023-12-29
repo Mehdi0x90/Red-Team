@@ -13,6 +13,7 @@ Red teaming occurs when ethical hackers are authorized by your organization to e
 
 ## Red Team Scenarios
 * [FTP => Path Traversal => CVE](https://github.com/Mehdi0x90/Red-Team/blob/main/FTP%20%3E%20Path%20Traversal%20%3E%20CVE.md)
+* [Redis Exploitation](https://github.com/Mehdi0x90/Red-Team/blob/main/Redis%20Exploitation.md)
 
 
 ## Coding & Scripting
