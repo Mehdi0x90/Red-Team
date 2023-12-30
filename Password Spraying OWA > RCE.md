@@ -2,7 +2,7 @@
 
 
 ### Getting a Shell via Malicious Email Rule
-If the password spray against an Exchange server was successful and you have obtained valid credentials, you can now leverage Ruler to create a malicious email rule to that will gain you remote code execution on the host that checks that compromised mailbox.
+If the password spray against an Exchange server was successful and you have obtained valid credentials, you can now leverage [Ruler](https://github.com/sensepost/ruler) to create a malicious email rule to that will gain you remote code execution on the host that checks that compromised mailbox.
 
 ### A high level overwiew of how the spraying and remote code execution works:
 1. assume you have obtained working credentials during the spray for the user `spotless@offense.local`.
