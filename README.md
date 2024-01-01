@@ -12,6 +12,7 @@ Red teaming occurs when ethical hackers are authorized by your organization to e
 
 
 ## Red Team Scenarios
+* [Bypass Application Whitelisting](https://github.com/Mehdi0x90/Red-Team/blob/main/Bypass%20application%20whitelisting.md)
 * [FTP > Path Traversal > CVE](https://github.com/Mehdi0x90/Red-Team/blob/main/FTP%20%3E%20Path%20Traversal%20%3E%20CVE.md)
 * [Inject Macros from a Remote](https://github.com/Mehdi0x90/Red-Team/blob/main/Inject%20Macros%20from%20a%20Remote.md)
 * [Password Spraying OWA > Remote Shell](https://github.com/Mehdi0x90/Red-Team/blob/main/Password%20Spraying%20OWA%20%3E%20RCE.md)
