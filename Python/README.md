@@ -1,6 +1,27 @@
 # Python
+### Google dork search
+```python
+# python3 -m pip install googlesearch-python
 
-### Python - Port Scanner
+from googlesearch import search
+
+def save_links_to_file(query, num_results, file_path):
+    with open(file_path, 'w', encoding='utf-8') as file:
+        for link in search(query, num_results):
+            file.write(link + '\n')
+
+
+query = "YOUR GOOGLE DORK"
+num_results = 1000
+output_file_path = "google_search_results.txt"
+
+
+save_links_to_file(query, num_results, output_file_path)
+
+print(f"Links saved to {output_file_path}")
+```
+
+### Port Scanner
 ```python
 import socket as sk
 for port in range (1, 1024):
@@ -14,7 +35,7 @@ for port in range (1, 1024):
 ```
 
 
-### Python - Generating base64 words
+### Generating base64 words
 ```python
 #!/usr/bin/pjthon
 import base64
@@ -26,7 +47,7 @@ for line in file1:
     file2.write(new)
 ```
 
-### Python - Convert Windows registry from hex to ascii
+### Convert Windows registry from hex to ascii
 ```python
 import binascii, sys, string
 dataFormatHex = binascii.a2b_hex(sys.argv[1])
@@ -38,7 +59,7 @@ print ''\n'' + output
 ```
 
 
-### Python - Reading all folder files and searching with regex
+### Reading all folder files and searching with regex
 ```python
 import glob, re
 for msg in glob.glob('/tmp/.txt'):
@@ -49,7 +70,7 @@ for msg in glob.glob('/tmp/.txt'):
     fi1er.c1ose()
 ```
 
-### Python - Building a web server encrypted with ssl
+### Building a web server encrypted with ssl
 ```python
 # Create SSL cert (follow prompts for customization)
   openssl req -new -x509 -keyout cert.pem -out cert.pern -days 365 -nodes
@@ -64,13 +85,13 @@ httpd.socket = ssl.wrap socket(httpd.socket,certflle=cert,server side=True)
 httpd.serve_forever()
 ```
 
-### Python - Web Server on port 8888
+### Web Server on port 8888
 ```python
 python3 -m  http.server 8888
 ```
 
 
-### Python - Send email (sendmail must be installed)
+### Send email (sendmail must be installed)
 ```python
 #!/usr/bin/python
 import smtplib, string
@@ -99,7 +120,7 @@ os.system("/etc/init.d/sendmail stop")
 ```
 
 
-### Python - Get the file from http and run it
+### Get the file from http and run it
 ```python
 #!/usr/bin/python
 import urllib2, os
