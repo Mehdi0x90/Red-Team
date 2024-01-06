@@ -47,7 +47,7 @@ bash.exe -c "your_linux_command_here"
 Start-Process -NoNewWindow "bash.exe" -ArgumentList "-c your_linux_command_here"
 ```
 
-## bitsadmin (File Transfer)
+## bitsadmin.exe (File Transfer)
 Bitsadmin.exe is a command-line tool that provides the ability to create and monitor BITS (Background Intelligent Transfer Service) jobs. While its legitimate use is for transferring files between machines, attackers can misuse it to download, upload, or even execute malicious files. Its ability to perform these tasks in the background can make detection more challenging.
 
 **CMD**
