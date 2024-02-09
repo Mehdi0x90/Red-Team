@@ -32,7 +32,7 @@ for i in {1..65535}; do (echo < /dev/tcp/192.168.0.1/$i) &>/dev/null && printf "
 
 ```
 
-### Commom Bash
+### Common Bash
 ```bash
 #To find any abnormally running services, you can use
 service --status-all
