@@ -389,6 +389,17 @@ iptables -P OUTPUT ACCEPT
 
 ### Network Commands
 ```bash
+#list the ARP cache entries
+ip neigh
+or
+ip -s neigh
+
+#flush all the entries ARP cache
+sudo ip neigh flush all
+
+#show all interfaces brief
+ip -br a
+
 #network communications
 watch ss -tp 
 
