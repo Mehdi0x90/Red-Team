@@ -10,6 +10,7 @@ Red teaming occurs when ethical hackers are authorized by your organization to e
 ## Table of Contents
 * [Data Transfer Techniques](https://github.com/Mehdi0x90/Red-Team/blob/main/Data%20Transfer%20Techniques.md)
 * [Powershell Without Powershell.exe](https://github.com/Mehdi0x90/Red-Team/blob/main/Powershell%20Without%20Powershell.md)
+* [ZIP & RAR File Crack](https://github.com/Mehdi0x90/Red-Team/blob/main/ZIP%20%26%20RAR%20File%20Crack.md)
 * [Tips and Tricks](https://github.com/Mehdi0x90/Red-Team/blob/main/Tips%20and%20Tricks.md)
 
 
