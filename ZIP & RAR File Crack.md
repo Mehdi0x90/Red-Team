@@ -11,7 +11,7 @@ sudo apt update
 sudo apt install john
 ```
 
-### Convert ZIP to John Format
+### Convert ZIP or RAR to John Format
 John the Ripper requires the password hash to be in a specific format. To convert the ZIP/RAR file’s password hash into the appropriate format, use the `zip2john` or `rar2john` utility that comes with John the Ripper. Open a terminal and navigate to the directory containing the ZIP or RAR file. Run the following command:
 
 ```bash
