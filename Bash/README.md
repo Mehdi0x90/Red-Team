@@ -597,3 +597,21 @@ find / -uid 0 -perm -4000 -type f 2>/dev/null
 #display writable files
 find / -writable ! -user whoami -type f! -path “/proc/” ! -path “/sys/” -exec ls -al {} \; 2>/dev/null
 ```
+
+### Bash for Bug Hunters!
+```bash
+# Create multiple folders using one-liner
+mkdir {dev,test,prod}
+
+# Create multiple files efficiently
+touch {file1,file2,file3}.txt
+
+# Generating files with numeric sequences
+seq -w 1 10 | xargs -I {} touch file{}.txt
+
+```
+
+
+
+
+
